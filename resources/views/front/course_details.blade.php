@@ -3,34 +3,34 @@
 @section('body')
 <!--Page Header Start-->
 <section class="page-header">
-    <div class="page-header__bg" style="background-image: url({{url('/images/banners/'.$page->banner_image)}}); height: 400px; background-size: cover; background-position: center;">
-    </div>
-    
-    </div>
-    {{-- <div class="page-header__shape-1 float-bob-x">
-        <img src="{{url('/front')}}/assets/images/shapes/page-header-shape-1.png" alt="">
-    </div> --}}
-    {{-- <div class="page-header__shape-2 float-bob-x">
-        <img src="{{url('/front')}}/assets/images/shapes/page-header-shape-2.png" alt="">
-    </div> --}}
-    {{-- <div class="page-header__shape-3 float-bob-y">
-        <img src="{{url('/front')}}/assets/images/shapes/page-header-shape-3.png" alt="">
-    </div> --}}
-    <div class="container">
-        <div class="page-header__inner">
-            <ul class="thm-breadcrumb list-unstyled">
-                <li><a href="{{url('/')}}">Home</a></li>
-                <li><span class="fa fa-angle-right"></span></li>
-                <li><a href="#">{{ucfirst(Request::segment(1))}}</a></li>
-                <li><span class="fa fa-angle-right"></span></li>
-                <li><a href="#">{{ucfirst(Request::segment(2))}}</a></li>
-                <li><span class="fa fa-angle-right"></span></li>
-                <li>{{strtoupper(Request::segment(3))}}</li>
-            </ul>
-            <h2>{{$page->page_title}}</h2>
+    <div class="page-header__bg" style="background-image: url({{ url('/images/banners/' . $page->banner_image) }}); height: 400px; background-size: cover; background-position: center; position: relative;">
+        <!-- Optional dark overlay -->
+        <div style="position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: rgba(0,0,0,0.5);"></div>
+
+        <!-- Content on top of image -->
+        <div class="container" style="position: relative; z-index: 2; height: 100%; display: flex; align-items: center;">
+            <div class="page-header__inner text-white">
+                <ul class="thm-breadcrumb list-unstyled d-flex align-items-center" style="gap: 10px; flex-wrap: wrap;">
+                    <li><a href="{{ url('/') }}" class="text-white">Home</a></li>
+                    @if(Request::segment(1))
+                        <li><span class="fa fa-angle-right"></span></li>
+                        <li><a href="#" class="text-white">{{ ucfirst(Request::segment(1)) }}</a></li>
+                    @endif
+                    @if(Request::segment(2))
+                        <li><span class="fa fa-angle-right"></span></li>
+                        <li><a href="#" class="text-white">{{ ucfirst(Request::segment(2)) }}</a></li>
+                    @endif
+                    @if(Request::segment(3))
+                        <li><span class="fa fa-angle-right"></span></li>
+                        <li class="text-white">{{ strtoupper(Request::segment(3)) }}</li>
+                    @endif
+                </ul>
+                <h2 class="mt-2 text-white">{{ $page->page_title }}</h2>
+            </div>
         </div>
     </div>
 </section>
+
 <!--Page Header End-->
 
 <!--Services Details Start-->
