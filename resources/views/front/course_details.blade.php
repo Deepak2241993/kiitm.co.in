@@ -3,17 +3,19 @@
 @section('body')
 <!--Page Header Start-->
 <section class="page-header">
-    <div class="page-header__bg" style="background-image: url({{url('/images/banners/'.$page->banner_image)}});">
+    <div class="page-header__bg" style="background-image: url({{url('/images/banners/'.$page->banner_image)}}); height: 400px; background-size: cover; background-position: center;">
     </div>
-    <div class="page-header__shape-1 float-bob-x">
+    
+    </div>
+    {{-- <div class="page-header__shape-1 float-bob-x">
         <img src="{{url('/front')}}/assets/images/shapes/page-header-shape-1.png" alt="">
-    </div>
-    <div class="page-header__shape-2 float-bob-x">
+    </div> --}}
+    {{-- <div class="page-header__shape-2 float-bob-x">
         <img src="{{url('/front')}}/assets/images/shapes/page-header-shape-2.png" alt="">
-    </div>
-    <div class="page-header__shape-3 float-bob-y">
+    </div> --}}
+    {{-- <div class="page-header__shape-3 float-bob-y">
         <img src="{{url('/front')}}/assets/images/shapes/page-header-shape-3.png" alt="">
-    </div>
+    </div> --}}
     <div class="container">
         <div class="page-header__inner">
             <ul class="thm-breadcrumb list-unstyled">
@@ -43,19 +45,19 @@
                         </div>
                         <ul class="services-details__services list-unstyled">
                             <li class="active">
-                                <a href="mobile-applications.html">Online Coaching</a>
+                                <a href="#">Online Coaching</a>
                             </li>
                             <li>
-                                <a href="digital-marketing.html">Classroom Coaching</a>
+                                <a href="#">Classroom Coaching</a>
                             </li>
                             <li>
-                                <a href="graphic-designing.html">Test Series </a>
+                                <a href="#">Test Series </a>
                             </li>
                             <li>
-                                <a href="web-development.html">Books and Study Material</a>
+                                <a href="#">Books and Study Material</a>
                             </li>
                             <li>
-                                <a href="social-marketing.html">Self Paced Courses</a>
+                                <a href="#">Self Paced Courses</a>
                             </li>
                             
                         </ul>
@@ -65,7 +67,7 @@
                             <span class="icon-pdf-file"></span>
                         </div>
                         <div class="content">
-                            <h3><a href="#">Important Info</a></h3>
+                            <h3><a href="{{$page->pdf}}" target="_blank">Important Info</a></h3>
                         </div>
                     </div>
                     <div class="banner-one">
@@ -86,21 +88,14 @@
                                 <input type="test"class="form-control mb-2">
                             </div>
                             <div class="form-group">
-                                <label>Preferred Program </label>
-                                <select class="form-control">
-                                    <option value="">Preferred Program</option>
-                                    <option>Online Coaching</option>
-                                    <option>Classroom Coaching</option>
-                                    <option>Test Series</option>
-                                    <option>Books and Study Material</option>
-                                    <option>Self Paced Courses</option>
-                                </select>
+                                <label>Message</label>
+                                <textarea name="message" id="message" cols="30" rows="10" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Year of appearing XII boards exam</label>
                                 <select name="tey" class="form-control">
                                     @for($i=date('Y'); $i<date('Y')+3;$i++)
-                                    <option value="2023">{{$i}}</option>
+                                    <option value="{{$i}}">{{$i}}</option>
                                     @endfor
                                     
                                   </select>
