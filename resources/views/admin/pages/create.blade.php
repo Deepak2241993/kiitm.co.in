@@ -69,7 +69,7 @@
                         <div class="col-md-10"id="short_image_upload">
                             @if(isset($page) && $page->image_short!='' && $page->image_short!= null)
                         
-                            <a href="{{url('/images/pages/'.$page->image_short)}}" target="_blank">View PDF</a>
+                            <a href="{{url('/images/pages',$page->image_short)}}" target="_blank">View PDF</a>
                         
                         @endif
                             <input class="form-control" type="file" name="image_short"  id="image_short-0" accept="application/pdf">

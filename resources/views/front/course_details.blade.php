@@ -67,7 +67,7 @@
                             <span class="icon-pdf-file"></span>
                         </div>
                         <div class="content">
-                            <h3><a href="{{$page->pdf}}" target="_blank">Important Info</a></h3>
+                            <h3><a href="{{url('/images/pages',$page->image_short)}}"  download>Important Info</a></h3>
                         </div>
                     </div>
                     <div class="banner-one">
