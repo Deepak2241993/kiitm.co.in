@@ -11,7 +11,6 @@
         /* Force 1600x600 aspect ratio */
         .slider-img {
             width: 100%;
-            aspect-ratio: 1600 / 600;
             /* ⭐ KEY LINE */
             height: auto;
             object-fit: cover;
@@ -30,7 +29,7 @@
     </style>
     <!-- Main Sllider Start -->
     <section class="main-slider-two">
-<div class="carousel-wrapper">
+
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
 
             <div class="carousel-indicators">
@@ -51,7 +50,7 @@
             </div>
 
         </div>
-</div>
+
 
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
             data-bs-slide="prev">
