@@ -7,28 +7,46 @@ $clients
 $pages=App\Models\Page::where('status',1)->get();
 @endphp
 {{-- Body Section --}}
+<style>
+    .slider-img {
+    background-color: #f2f2f2;
+}
+.carousel-item img {
+    transition: transform 0.6s ease;
+}
+.carousel-item.active img {
+    transform: scale(1.05);
+}
 
+    </style>
         <!-- Main Sllider Start -->
         <section class="main-slider-two">
             
-   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+
   <div class="carousel-indicators">
-      @if(count($slider)>0)
     @foreach($slider as $key=>$value)
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{$key}}" class="active" aria-current="true" aria-label="Slide 1"></button>
-     @endforeach
-     @endif
+      <button type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="{{ $key }}"
+              class="{{ $key == 0 ? 'active' : '' }}">
+      </button>
+    @endforeach
   </div>
+
   <div class="carousel-inner">
-     @if(count($slider)>0)
     @foreach($slider as $key=>$value)
-    <div class="carousel-item @if($key==0){{'active'}}@endif">
-      <img src="{{url('images/sliders/'.$value->image)}}" class="d-block w-100" alt="...">
-    </div>
-     @endforeach
-    @endif
-    
+      <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+        <img 
+          src="{{ url('images/sliders/'.$value->image) }}" 
+          class="d-block w-100 slider-img"
+          alt="slider image">
+      </div>
+    @endforeach
   </div>
+
+</div>
+
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
