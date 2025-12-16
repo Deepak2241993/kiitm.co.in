@@ -8,17 +8,20 @@ $pages=App\Models\Page::where('status',1)->get();
 @endphp
 {{-- Body Section --}}
 <style>
-    .slider-img {
-    background-color: #f2f2f2;
-}
-.carousel-item img {
-    transition: transform 0.6s ease;
-}
-.carousel-item.active img {
-    transform: scale(1.05);
+/* Force 1600x600 aspect ratio */
+.slider-img {
+    width: 100%;
+    aspect-ratio: 1600 / 600;   /* ⭐ KEY LINE */
+    height: auto;
+    object-fit: cover;          /* Crop overflow */
 }
 
-    </style>
+/* Optional: limit height on large screens */
+#carouselExampleIndicators {
+    max-height: 600px;
+    overflow: hidden;
+}
+</style>
         <!-- Main Sllider Start -->
         <section class="main-slider-two">
             
@@ -37,10 +40,10 @@ $pages=App\Models\Page::where('status',1)->get();
   <div class="carousel-inner">
     @foreach($slider as $key=>$value)
       <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-        <img 
-          src="{{ url('images/sliders/'.$value->image) }}" 
-          class="d-block w-100 slider-img"
-          alt="slider image">
+       <img 
+  src="{{ url('images/sliders/'.$value->image) }}" 
+  class="d-block w-100 slider-img"
+  alt="slider image">
       </div>
     @endforeach
   </div>
